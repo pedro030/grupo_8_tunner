@@ -1,5 +1,7 @@
 # Tunner
 <p>Trabajo integrador Programación 3</p>
+<p>Tecnicatura Universitaria en Programación</p>
+<p>Universidad Tecnológica Nacional</p>
 
 ## Nuestro e-commerce
 

@@ -18,3 +18,6 @@
 <li>Nicolas Lozano</li>
 <li>Matias Montañez</li>
 </ul>
+
+## Diseño Figma
+https://www.figma.com/file/R16HPyOKWYOqTxwUKQqjWj/Untitled?node-id=0%3A1

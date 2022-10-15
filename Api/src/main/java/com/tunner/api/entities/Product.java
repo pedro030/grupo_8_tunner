@@ -6,23 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "Products")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class User extends Base {
-
+public class Product extends Base{
     @Column(name = "name")
     private String name;
-    @Column(name = "lastname")
-    private String lastname;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "password")
-    private String password;
-
+    @Column(name = "artist")
+    private String artist;
+    @Column(name = "genre")
+    private String genre;
+    @Column(name = "format")
+    private String format;
 }

@@ -4,14 +4,13 @@ import com.tunner.api.entities.Base;
 import com.tunner.api.entities.User;
 import com.tunner.api.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
-
 public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceImpl<E, Long >> implements BaseController<E, Long> {
-    @Autowired
     protected S service;
 
     @GetMapping("")

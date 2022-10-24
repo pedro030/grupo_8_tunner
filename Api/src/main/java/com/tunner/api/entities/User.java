@@ -1,5 +1,6 @@
 package com.tunner.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -26,5 +28,15 @@ public class User extends Base {
     private String email;
     @Column(name = "password")
     private String password;
+
+    //add columns
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Bill> bill;
+
+    //OneToOne
+    // usuario -> carrito
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cart")
+    private Cart cart;
 
 }

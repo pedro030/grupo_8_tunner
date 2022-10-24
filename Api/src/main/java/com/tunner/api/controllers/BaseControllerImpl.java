@@ -4,6 +4,7 @@ import com.tunner.api.entities.Base;
 import com.tunner.api.entities.User;
 import com.tunner.api.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +12,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceImpl<E, Long >> implements BaseController<E, Long> {
+
+    @Autowired
     protected S service;
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"Error. Por favor intente más tarde.\"}");
+        }
+    }
+    @GetMapping("/paged")
+    public ResponseEntity<?> getAll(Pageable pageable){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAll(pageable));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"Error. Por favor intente más tarde.\"}");
         }
@@ -45,7 +56,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.update(id, entity));
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"Error. Por favor intente más tarde.\"}");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" +e.getMessage()+"\"}");
         }
     }
 

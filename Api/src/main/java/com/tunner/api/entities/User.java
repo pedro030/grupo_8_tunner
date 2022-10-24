@@ -1,5 +1,6 @@
 package com.tunner.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +32,11 @@ public class User extends Base {
     //add columns
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Bill> bill;
+
+    //OneToOne
+    // usuario -> carrito
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cart")
+    private Cart cart;
 
 }

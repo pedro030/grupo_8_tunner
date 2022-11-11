@@ -9,8 +9,6 @@ import { CardProductComponent } from './pages/components/card-product/card-produ
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListProductsComponent } from './pages/list-products/list-products.component';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -25,8 +23,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     NgbModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ name: "TEST"}),
   ],
   providers: [],
   bootstrap: [AppComponent]

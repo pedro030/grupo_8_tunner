@@ -7,8 +7,10 @@ import { FooterComponent } from './pages/components/footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
 import { CardProductComponent } from './pages/components/card-product/card-product.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListProductsComponent } from './pages/list-products/list-products.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ListProductsComponent } from './pages/list-products/list-products.compo
   ],
   imports: [
     BrowserModule,
-    NgbModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

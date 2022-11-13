@@ -1,4 +1,5 @@
-// import { createAction, props } from "@ngrx/store";
+import { createAction, props } from "@ngrx/store";
+import { Product } from "src/app/Core/models/product.model";
 
-// export const loadProduct = createAction('[Products] Load Products');
-// export const loadedProducts = createAction('[Products] Loaded Products', props<{products: any}>);
+export const loadProducts = createAction('[Products] Load Products');
+export const loadedProducts = createAction('[Products] Loaded Products', props<{products: Product[]}>());
